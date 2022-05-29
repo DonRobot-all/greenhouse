@@ -4,6 +4,6 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-
+digitalWrite(8, HIGH)
+digitalWrite(8, LOW)
 }
