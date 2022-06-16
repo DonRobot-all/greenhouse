@@ -10,6 +10,7 @@
 #define water_level_sensor A2
 #define timer 3
 #define UV_lamp 7
+int whal_water = 30;//не точное значение
 
 void setup() {
   pinMode(light_sensor, OUTPUT);
@@ -27,7 +28,7 @@ void loop(){
 light();
 delay(1000);
 temperature();
-
+waterp();
 }
 
 
@@ -37,4 +38,15 @@ void light() {
 
 void temperature() {
   Serial.println(analogRead(A1));
+}
+
+void waterp(){
+  Serial.println(digitalRead(water_level_sensor));
+  if (digitalRead(water_level_sensor) <= whal_water){
+    Serial.println("Водичка подана");//включаем водичку 
+    delay(5000);
+    Serial.println("Водичку скомуниздили");//выключаем водичку
+  }
+  
+  
 }
